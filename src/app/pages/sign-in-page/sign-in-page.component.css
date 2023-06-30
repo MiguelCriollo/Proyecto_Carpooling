@@ -1,0 +1,22 @@
+.sign-in-page{
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    justify-content: center;
+
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.form{
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.sign-in-data{
+    display: grid;
+    grid-template-rows: 100px repeat(2, 1fr);
+}
+
+.buttons{
+    align-self: center;
+}
