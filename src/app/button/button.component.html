@@ -1,0 +1,15 @@
+<button
+  class="button"
+  (click)="navigateTo()"
+  [ngClass]="{ 'button--transparent': transparent }"
+>
+  <div
+    class="button__description"
+    [ngClass]="{ 'button__description--color': transparent }"
+  >
+    <span class="button__sub-text">{{ subText }}</span>
+    <span class="button__main-text">
+      <ng-content></ng-content>
+    </span>
+  </div>
+</button>

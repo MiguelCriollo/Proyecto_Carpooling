@@ -1,1 +1,16 @@
-<p>register-page1 works!</p>
+<div class="register1">
+    <header class="header">
+        <app-logotype></app-logotype>
+        <app-exit-button></app-exit-button>
+    </header>
+    <section class="register1__info">
+        <span class="register1__title">Registrarse</span>
+        <form action="">
+            <label for="">Nombre: </label><input type="text">
+            <label for="">Cedula: </label><input type="text">
+        </form>
+    </section>
+    <div class="buttons">
+        <app-button  [path]="paths.register2">Siguiente</app-button>
+    </div>
+</div>

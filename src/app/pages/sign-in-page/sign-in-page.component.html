@@ -1,22 +1,21 @@
 <div class="sign-in-page">
-    <header>
-        <app-logotype></app-logotype>
-        <button class="exit">X</button>
-    </header>
-    <div class="sign-in-data">
-        <span>Iniciar Sesión</span>
-        <form class="form" action="">
-            <label for="">Correo: </label>
-            <input type="text">
-            <label for="">Contraseña: </label>
-            <input type="text">
-        </form>
-        <div class="buttons">
-            <button [appSubmitButton]="false">Iniciar Sesión</button>
-            <a [appSubmitButton]="true" href="">
-                ¿Todavía no tienes cuenta?
-                registrarse
-            </a>
-        </div>
+  <header>
+    <app-logotype></app-logotype>
+    <app-exit-button></app-exit-button>
+  </header>
+  <div class="sign-in-data">
+    <span>Iniciar Sesión</span>
+    <form class="form" action="">
+      <label for="">Correo: </label>
+      <input type="text" />
+      <label for="">Contraseña: </label>
+      <input type="text" />
+    </form>
+    <div class="buttons">
+      <app-button>Iniciar Sesión</app-button>
+      <app-button [path]="paths.register1" [transparent]="true" subText="¿Todavía no tienes cuenta?"
+        >Registrarse</app-button
+      >
     </div>
+  </div>
 </div>

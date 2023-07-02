@@ -11,6 +11,9 @@ import { SubmitButtonDirective } from './directives/submit-button/submit-button.
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
 import { RegisterPage1Component } from './pages/register-pages/register-page1/register-page1.component';
 import { RegisterPage2Component } from './pages/register-pages/register-page2/register-page2.component';
+import { ButtonComponent } from './button/button.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { ExitButtonComponent } from './button/exit-button/exit-button.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { RegisterPage2Component } from './pages/register-pages/register-page2/re
     SubmitButtonDirective,
     SignInPageComponent,
     RegisterPage1Component,
-    RegisterPage2Component
+    RegisterPage2Component,
+    ButtonComponent,
+    ErrorPageComponent,
+    ExitButtonComponent
   ],
   imports: [
     BrowserModule,

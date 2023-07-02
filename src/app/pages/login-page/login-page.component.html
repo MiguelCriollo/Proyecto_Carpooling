@@ -5,7 +5,7 @@
         <h1>Empieza tus viajes ya</h1>
     </header>
     <section class="buttons">
-        <a [appSubmitButton]="false" class="sign-in" href="">Iniciar Sesión</a>
-        <a [appSubmitButton]="true"  [href]=" '/' + paths.register1">Registrarse</a>
+        <app-button [path]="paths.signInPage">Iniciar Sesión</app-button>
+        <app-button [path]="paths.register1" [transparent]="true">Registrarse</app-button>
     </section>
 </div>
