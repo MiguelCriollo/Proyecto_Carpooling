@@ -14,4 +14,8 @@ export class LoginPageComponent {
   constructor(private _paths: PathService){
     this.paths = _paths.paths;
   }
+
+  setActualText(event: string){
+    console.log(event);
+  }
 }

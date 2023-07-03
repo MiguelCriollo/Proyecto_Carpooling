@@ -1,5 +1,8 @@
 .button{
-    width: 22.625rem;
+    display: block;
+
+    width: 100%;
+    max-width: 362px;
     height: 5.625rem;
 
     background-color: var(--second-color);

@@ -1,21 +1,22 @@
-<div class="sign-in">
-  <header>
-    <app-logotype></app-logotype>
-    <app-exit-button></app-exit-button>
-  </header>
-  <div class="sign-in__data">
-    <span class="sign-in__title">Iniciar Sesión</span>
-    <form class="form" action="">
-      <label for="">Correo: </label>
-      <input type="text" />
-      <label for="">Contraseña: </label>
-      <input type="text" />
-    </form>
+<app-template-form-page title="Iniciar Sesión">
+  <div>
+    <app-form-input
+      name="email"
+      label="Correo Electrónico"
+      placeHolder="example@gmail.com"
+      (actualTextContent)="setEmailUser($event)"
+    ></app-form-input>
+    <app-form-input
+      name="password"
+      label="Contraseña"
+      placeHolder="********"
+      (actualTextContent)="setPasswordUser($event)"
+    ></app-form-input>
     <div class="buttons">
-      <app-button>Iniciar Sesión</app-button>
+      <app-button [path]="paths.homePage">Iniciar Sesión</app-button>
       <app-button [path]="paths.register1" [transparent]="true" subText="¿Todavía no tienes cuenta?"
         >Registrarse</app-button
       >
     </div>
   </div>
-</div>
+</app-template-form-page>

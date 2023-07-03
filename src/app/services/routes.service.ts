@@ -4,9 +4,11 @@ import { Injectable } from "@angular/core";
 export class PathService{
     private _paths = {
         loginPage: "Login",
-        signInPage: "sign_in",
-        register1: "register_page_1",
-        register2: "register_page_2"
+        signInPage: "Sign_in",
+        register1: "Register/1",
+        register2: "Register/2",
+        user: "User",
+        homePage: "User/Home"
     }
 
     public get paths(){

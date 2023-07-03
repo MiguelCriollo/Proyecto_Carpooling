@@ -1,0 +1,26 @@
+.container{
+    display: grid;
+    grid-template-rows: 30px 200px 400px ;
+
+    margin-top: 40px;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.title{
+
+    font-family: var(--text-font);
+    font-weight: 600;
+    font-size: 4rem;
+}
+
+.inputs{
+   display: grid;
+   grid-template-rows: repeat(2, 1fr);
+}
