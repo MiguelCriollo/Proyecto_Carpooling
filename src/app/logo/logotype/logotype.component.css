@@ -1,6 +1,8 @@
 .logotype__first-text{
+    font-family: var(--logo-font);
     font-size: 3rem;
 }
 .logotype__second-text{
+    font-family: var(--text-font);
     font-size: 2.5rem;
 }

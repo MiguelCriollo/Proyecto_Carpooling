@@ -4,4 +4,8 @@
 
     border: none;
     border-radius: 50%;
+    background-color: var(--main-color);
+
+    font-family: var(--logo-font);
+    font-size: 30px;
 }

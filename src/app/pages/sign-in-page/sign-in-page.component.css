@@ -1,4 +1,4 @@
-.sign-in-page{
+.sign-in{
     display: grid;
     grid-template-rows: 100px 1fr;
     justify-content: center;
@@ -7,12 +7,18 @@
     min-height: 100vh;
 }
 
+.sign-in__title{
+    font-family: var(--text-font);
+    font-weight: 600;
+    font-size: 4rem;
+}
+
 .form{
     display: grid;
     grid-template-rows: repeat(4, 1fr);
 }
 
-.sign-in-data{
+.sign-in__data{
     display: grid;
     grid-template-rows: 100px repeat(2, 1fr);
 }

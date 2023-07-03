@@ -3,6 +3,9 @@
     --main-color: #FFBE2E;
     --second-color: #17110D;
     --third-color: white;
+    --logo-font: 'Jomhuria', cursive;
+    --text-font: 'Josefin Slab', serif;
+    --text-button-font: 'Josefin Sans', sans-serif;
 }
 *{
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);

@@ -9,6 +9,7 @@ import { PathService } from 'src/app/services/routes.service';
 })
 export class LoginPageComponent {
   paths: any;
+  slogan: string = "Empieza tus viajes ya"
 
   constructor(private _paths: PathService){
     this.paths = _paths.paths;
