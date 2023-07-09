@@ -1,0 +1,26 @@
+.label{
+    display: block;
+
+    font-size: 2rem;
+    font-family: var(--text-font);
+    font-weight: 600;
+}
+
+.input{
+    width: calc(100% - 15px);
+    height: 66px;
+
+    padding-left: 15px;
+
+    background-color: var(--fourth-color);
+    border-radius: 10px;
+    border: none;
+
+    font-size: 1.5rem;
+    color: rgb(49, 49, 49);
+}
+
+.input.ng-invalid.ng-touched{
+    border: 2px solid rgb(218, 59, 59);
+    background-color: rgba(255, 0, 0, 0.137);
+}

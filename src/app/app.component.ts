@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataUserService } from './services/data-user.service';
-import { DatabaseUserService } from './services/database-users.service';
+import { DataUserService } from './core/services/data-user.service';
+import { DatabaseUserService } from './core/services/database-users.service';
 
 @Component({
   selector: 'app-root',

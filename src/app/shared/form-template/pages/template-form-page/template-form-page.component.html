@@ -1,0 +1,29 @@
+<div class="container">
+  <app-title class="title" [title]="title"></app-title>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit.emit(formGroup)">
+    <ng-container
+      *ngFor="
+        let nameControl of getObjectKeys(formGroup.controls);
+        let i = index
+      "
+    >
+      <app-input class="input"
+        [control]="getFormControl(nameControl)"
+        [id]="formInputDetails[i].id"
+        [type]="formInputDetails[i].type"
+        [textLabel]="formInputDetails[i].textLabel"
+        [placeHolder]="formInputDetails[i].placeHolder"
+      ></app-input>
+    </ng-container>
+    <ng-container *ngFor="let buttonDetail of formButtonDetails">
+      <app-submit-button class="button"
+        [type]="buttonDetail.type"
+        [link]="buttonDetail.link || ''"
+        [textContent]="buttonDetail.textContent"
+        [secondContent]="buttonDetail.secondText || ''"
+        [transparent]="buttonDetail.transparent || false"
+        [isDisabled]="!formGroup.valid"
+        ></app-submit-button>
+    </ng-container>
+  </form>
+</div>
