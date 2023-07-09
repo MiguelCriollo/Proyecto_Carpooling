@@ -33,7 +33,7 @@ export class RegisterPage1Component {
     { type: 'button', link: '/Register/2', textContent: 'Siguiente' },
     {
       type: 'button',
-      link: '/Sign_in',
+      link: '/sign-in',
       textContent: 'Iniciar Sesión',
       secondText: "¿Ya tienes cuenta?",
       transparent: true
