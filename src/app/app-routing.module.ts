@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PathService } from './core/services/routes.service';;
-
-const paths = new PathService().paths;
 
 const routes: Routes = [
   {
@@ -11,12 +8,12 @@ const routes: Routes = [
       import('./modules/welcome/welcome.module').then((m) => m.WelcomeModule),
   },
   {
-    path: paths.loginPage,
+    path: 'login',
     loadChildren: () =>
       import('./modules/welcome/welcome.module').then((m) => m.WelcomeModule),
   },
   {
-    path: paths.signInPage,
+    path: 'sign-in',
     loadChildren: () =>
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },

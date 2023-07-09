@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DataUserService } from 'src/app/core/services/data-user.service';
-import { PathService } from 'src/app/core/services/routes.service';
 import {
   FormButtonDetails,
   FormInputDetails,
@@ -11,7 +9,7 @@ import {
   selector: 'app-register-page1',
   templateUrl: './register-page1.component.html',
   styleUrls: ['./register-page1.component.css'],
-  providers: [PathService],
+  providers: [],
 })
 export class RegisterPage1Component {
   formGroup: FormGroup;

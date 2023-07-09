@@ -5,9 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { DataUserService } from './core/services/data-user.service';
-import { DatabaseUserService } from './core/services/database-users.service';
-
 
 @NgModule({
   declarations: [
@@ -18,7 +15,7 @@ import { DatabaseUserService } from './core/services/database-users.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [DataUserService, DatabaseUserService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { PathService } from 'src/app/core/services/routes.service';
 import {
   FormButtonDetails,
   FormInputDetails,
@@ -10,7 +9,7 @@ import {
   selector: 'app-sign-in-page',
   templateUrl: './sign-in-page.component.html',
   styleUrls: ['./sign-in-page.component.css'],
-  providers: [PathService],
+  providers: [],
 })
 export class SignInPageComponent {
   formGroup: FormGroup;
