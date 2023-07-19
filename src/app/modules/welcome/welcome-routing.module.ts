@@ -3,7 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 const routes: Routes = [
-  {path: '', component: LoginPageComponent}
+  {path: '', component: LoginPageComponent},
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('../login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('../register/register.module').then(
+        (m) => m.RegisterModule
+      ),
+  }
 ];
 
 @NgModule({
