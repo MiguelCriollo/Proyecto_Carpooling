@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-exit-button',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./exit-button.component.css']
 })
 export class ExitButtonComponent {
-
+  constructor(private router: Router){}
+  
+  navigateTo(){
+    this.router.navigate(['']);
+  }
 }
