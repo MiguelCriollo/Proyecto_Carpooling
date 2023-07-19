@@ -1,24 +1,15 @@
-<ng-container *ngIf="type == 'submit'">
-  <input
-    class="button button--submit"
-    [ngClass]="{ 'button--submit-transparent': transparent }"
-    type="submit"
-    [value]="textContent"
-    [disabled]="isDisabled"
-  />
-</ng-container>
-<ng-container *ngIf="type == 'button'">
-  <a
-    class="button"
-    [ngClass]="{ 'button--transparent': transparent }"
-    [routerLink]="link"
+<button
+  [type]="type"
+  class="button"
+  [ngClass]="{ 'button--transparent': transparent }"
+  (click)="navigateTo()"
+>
+  <div
+    class="button__description"
+    [ngClass]="{ 'button__description--color': transparent }"
   >
-    <div
-      class="button__description"
-      [ngClass]="{ 'button__description--color': transparent }"
-    >
-      <span class="button__sub-text">{{ secondContent }}</span>
-      <span class="button__main-text">{{ textContent }}</span>
-    </div>
-  </a>
-</ng-container>
+    <span class="button__sub-text">{{ secondContent }}</span>
+    <span class="button__main-text">{{ textContent }}</span>
+  </div>
+</button>
+

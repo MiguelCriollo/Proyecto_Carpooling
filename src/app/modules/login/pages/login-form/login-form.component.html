@@ -1,6 +1,6 @@
 <app-body-center>
-    <app-title title="Registrarse"></app-title>
-  <form [formGroup]="registerFormPage2" (ngSubmit)="onSubmit()">
+  <app-title title="Iniciar Sesión"></app-title>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <app-body-space>
       <app-input
         [control]="getFormControl('email')"
@@ -12,21 +12,21 @@
       <app-input
         [control]="getFormControl('password')"
         textLabel="Contraseña: "
-        placeHolder="***********"
+        placeHolder="********"
         type="password"
         id="fpassword"
       ></app-input>
-      <app-input
-        [control]="getFormControl('confirmPassword')"
-        textLabel="Confirmar Contraseña: "
-        placeHolder="***********"
-        type="password"
-        id="fconfirmPassword"
-      ></app-input>
       <app-submit-button
         type="submit"
-        [deactiveLink]="true"
+        link="/login"
+        textContent="Iniciar Sesión"
+      ></app-submit-button>
+      <app-submit-button
+        type="button"
+        link="/login"
         textContent="Registrarse"
+        secondContent="¿Todavía no tienes cuenta?"
+        [transparent]="true"
       ></app-submit-button>
     </app-body-space>
   </form>

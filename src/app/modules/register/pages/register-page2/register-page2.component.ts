@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {
-  FormButtonDetails,
-  FormInputDetails,
-} from 'src/app/shared/form-template/interfaces/formDetails.interface';
+import { FormGroup } from '@angular/forms';
+import { RegisterFormService } from '../../services/register-form.service';
+import { FormsService } from 'src/app/shared/form-template/services/forms.service';
 
 @Component({
   selector: 'app-register-page2',
@@ -12,43 +10,26 @@ import {
   providers: [],
 })
 export class RegisterPage2Component {
-  formGroup: FormGroup;
-  formInputDetails: FormInputDetails[] = [
-    {
-      id: 'femail',
-      name: 'email',
-      type: 'email',
-      textLabel: 'Correo Electrónico',
-      placeHolder: 'name@example.com',
-    },
-    {
-      id: 'fpassword',
-      name: 'password',
-      type: 'password',
-      textLabel: 'Contraseña: ',
-      placeHolder: '*******',
-    },
-    {
-      id: 'fpasswordConfirm',
-      name: 'passwordConfirm',
-      type: 'password',
-      textLabel: 'Confirmar Contraseña: ',
-      placeHolder: '*******',
-    },
-  ];
-  formButtonDetails: FormButtonDetails[] = [
-    {type: "submit", textContent: "Registrarse"}
-  ];
+  registerFormPage2: FormGroup;
 
-  constructor() {
-    this.formGroup = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, Validators.required),
-      passwordConfirm: new FormControl(null, Validators.required),
+  constructor(
+    private registerForm: RegisterFormService,
+    private formService: FormsService
+  ) {
+    this.registerFormPage2 = new FormGroup({});
+  }
+
+  ngOnInit() {
+    this.registerForm.getRegisterForm().subscribe((form) => {
+      this.registerFormPage2 = form.get('page2') as FormGroup;
     });
   }
 
-  printForm(form: FormGroup){
-    console.log(form);
+  getFormControl(controlName: string) {
+    return this.formService.getFormControl(this.registerFormPage2, controlName);
+  }
+
+  onSubmit(){
+    console.log(this.registerFormPage2.value);
   }
 }

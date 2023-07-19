@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {
-  FormButtonDetails,
-  FormInputDetails,
-} from 'src/app/shared/form-template/interfaces/formDetails.interface';
+import { FormGroup } from '@angular/forms';
+import { RegisterFormService } from '../../services/register-form.service';
+import { FormsService } from 'src/app/shared/form-template/services/forms.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-page1',
@@ -12,38 +11,28 @@ import {
   providers: [],
 })
 export class RegisterPage1Component {
-  formGroup: FormGroup;
-  formInputDetails: FormInputDetails[] = [
-    {
-      id: 'fname',
-      name: 'name',
-      type: 'text',
-      textLabel: 'Nombre: ',
-      placeHolder: 'Luis',
-    },
-    {
-      id: 'fidCard',
-      name: 'idCard',
-      type: 'text',
-      textLabel: 'Cédula: ',
-      placeHolder: '1328812923',
-    },
-  ];
-  formButtonDetails: FormButtonDetails[] = [
-    { type: 'button', link: '/Register/2', textContent: 'Siguiente' },
-    {
-      type: 'button',
-      link: '/sign-in',
-      textContent: 'Iniciar Sesión',
-      secondText: "¿Ya tienes cuenta?",
-      transparent: true
-    },
-  ];
+  registerFormPage1: FormGroup;
+  constructor(
+    private registerForm: RegisterFormService,
+    private formService: FormsService,
+    private router: Router
+  ) {
+    this.registerFormPage1 = new FormGroup({});
+  }
 
-  constructor() {
-    this.formGroup = new FormGroup({
-      name: new FormControl(null, Validators.required),
-      idCard: new FormControl(null, Validators.required),
+  ngOnInit() {
+    this.registerForm.getRegisterForm().subscribe((form) => {
+      this.registerFormPage1 = form.get('page1') as FormGroup;
     });
   }
+
+  getFormControl(controlName: string) {
+    return this.formService.getFormControl(this.registerFormPage1, controlName);
+  }
+
+  onSubmit(){
+    this.registerForm.updateValidationOfPageOne(this.registerFormPage1.valid);
+    this.router.navigate(['/register','2']);
+  }
+
 }

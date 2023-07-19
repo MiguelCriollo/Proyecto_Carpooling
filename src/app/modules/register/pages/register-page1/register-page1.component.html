@@ -1,6 +1,14 @@
-<app-template-form-page
-    title="Registrarse"
-    [formGroup]="formGroup"
-    [formInputDetails]="formInputDetails"
-    [formButtonDetails]="formButtonDetails"
-></app-template-form-page>
+<app-body-center>
+  <app-title title="Registrarse"></app-title>
+  <form [formGroup]="registerFormPage1" (ngSubmit)="onSubmit()">
+    <app-body-space>
+      <app-input
+        [control]="getFormControl('username')"
+        textLabel="Nombre de Usuario: "
+        placeHolder="Juanito"
+        id="fusername"
+      ></app-input>
+      <app-submit-button type="submit" link="register/2" textContent="Siguiente" [deactiveLink]="true"></app-submit-button>
+    </app-body-space>
+  </form>
+</app-body-center>

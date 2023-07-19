@@ -7,6 +7,7 @@ import { SubmitButtonComponent } from './components/submit-button/submit-button.
 import { TemplateFormPageComponent } from './pages/template-form-page/template-form-page.component';
 import { TitleComponent } from './components/title/title.component';
 import { InputComponent } from './components/input/input.component';
+import { FormsService } from './services/forms.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,10 @@ import { InputComponent } from './components/input/input.component';
   ],
   exports: [
     TemplateFormPageComponent,
-    SubmitButtonComponent
-  ]
+    SubmitButtonComponent,
+    InputComponent,
+    TitleComponent
+  ],
+  providers: [FormsService]
 })
 export class FormTemplateModule { }
