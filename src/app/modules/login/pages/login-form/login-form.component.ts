@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormsService } from 'src/app/shared/form-template/services/forms.service';
@@ -9,7 +10,7 @@ import { FormsService } from 'src/app/shared/form-template/services/forms.servic
 })
 export class LoginFormComponent {
   loginForm: FormGroup;
-  constructor(private formService: FormsService) {
+  constructor(private formService: FormsService, private http: HttpClient) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(8)]),
@@ -23,5 +24,13 @@ export class LoginFormComponent {
   onSubmit() {
     console.log(this.loginForm.value);
     console.log(this.loginForm.valid);
+    if(this.loginForm.valid){
+      this.http.post('http://localhost:1337/api/auth/local', {
+        "identifier": this.loginForm.value.email,
+        "password": this.loginForm.value.password
+      }).subscribe(res=>{
+        console.log(res);
+      })
+    }
   }
 }

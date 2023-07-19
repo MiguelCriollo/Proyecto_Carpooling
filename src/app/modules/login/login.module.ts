@@ -6,20 +6,18 @@ import { LoginRoutingModule } from './login-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BodyTemplateModule } from 'src/app/shared/body-template/body-template.module';
 import { PageComponentModule } from 'src/app/shared/page-component/page-component.module';
-
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    LoginFormComponent
-  ],
+  declarations: [LoginFormComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormTemplateModule,
     LoginRoutingModule,
     BodyTemplateModule,
-    PageComponentModule
-  ]
+    PageComponentModule,
+    HttpClientModule,
+  ],
 })
-export class LoginModule { }
+export class LoginModule {}
