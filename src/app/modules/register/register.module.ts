@@ -8,6 +8,7 @@ import { RegisterFormService } from './services/register-form.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BodyTemplateModule } from 'src/app/shared/body-template/body-template.module';
 import { PageComponentModule } from 'src/app/shared/page-component/page-component.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -22,7 +23,8 @@ import { PageComponentModule } from 'src/app/shared/page-component/page-componen
     FormTemplateModule,
     BodyTemplateModule,
     ReactiveFormsModule,
-    PageComponentModule
+    PageComponentModule,
+    HttpClientModule
   ],
   providers: [RegisterFormService]
 })
