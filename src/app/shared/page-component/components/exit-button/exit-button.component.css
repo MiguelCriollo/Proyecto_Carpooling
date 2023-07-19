@@ -1,0 +1,10 @@
+.exit-button{
+    width: 2.5rem;
+    height: 2.5rem;
+
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 50%;
+
+    font-family: var(--text-font);
+}

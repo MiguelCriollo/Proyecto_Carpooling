@@ -7,6 +7,7 @@ import { FormTemplateModule } from 'src/app/shared/form-template/form-template.m
 import { RegisterFormService } from './services/register-form.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BodyTemplateModule } from 'src/app/shared/body-template/body-template.module';
+import { PageComponentModule } from 'src/app/shared/page-component/page-component.module';
 
 
 
@@ -20,7 +21,8 @@ import { BodyTemplateModule } from 'src/app/shared/body-template/body-template.m
     RegisterRoutingModule,
     FormTemplateModule,
     BodyTemplateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PageComponentModule
   ],
   providers: [RegisterFormService]
 })

@@ -1,0 +1,13 @@
+.logotype{
+
+}
+
+.firstText{
+    font-size: 3rem;
+    font-family: var(--logo-font);
+}
+
+.secondText{
+    font-size: 2.5rem;
+    font-family: var(--text-font);
+}

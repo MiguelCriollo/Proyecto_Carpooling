@@ -5,6 +5,7 @@ import { LoginFormComponent } from './pages/login-form/login-form.component';
 import { LoginRoutingModule } from './login-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BodyTemplateModule } from 'src/app/shared/body-template/body-template.module';
+import { PageComponentModule } from 'src/app/shared/page-component/page-component.module';
 
 
 
@@ -17,7 +18,8 @@ import { BodyTemplateModule } from 'src/app/shared/body-template/body-template.m
     ReactiveFormsModule,
     FormTemplateModule,
     LoginRoutingModule,
-    BodyTemplateModule
+    BodyTemplateModule,
+    PageComponentModule
   ]
 })
 export class LoginModule { }

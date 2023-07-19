@@ -1,0 +1,5 @@
+.message{
+    font-size: 4rem;
+    font-family: var(--text-font);
+    text-align: center;
+}
