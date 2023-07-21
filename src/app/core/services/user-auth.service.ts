@@ -1,11 +1,12 @@
-import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Injectable, inject } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
+import { UserAuthModel } from "src/app/modules/login/models/user.model";
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class UserAuthService{
     private isUserAuth$: BehaviorSubject<boolean>;
+    private http = inject(HttpClient);
 
     constructor(){
         this.isUserAuth$ = new BehaviorSubject(false);
@@ -17,5 +18,11 @@ export class UserAuthService{
 
     isUserAuth(){
         return this.isUserAuth$.asObservable();
+    }
+
+    getToken(email: string, password: string){
+        return this.http.post<UserAuthModel>('http://localhost:1337/api/auth/local', {
+            identifier: email, password: password
+        });
     }
 }

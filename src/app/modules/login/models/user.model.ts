@@ -4,5 +4,5 @@ export interface UserAuthModel{
 }
 
 interface User{
-    id: string
+    id: number
 }

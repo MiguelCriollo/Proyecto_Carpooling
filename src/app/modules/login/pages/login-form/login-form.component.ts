@@ -38,20 +38,21 @@ export class LoginFormComponent {
   }
 
   onSubmit() {
-    console.log(this.loginForm.value);
-    console.log(this.loginForm.valid);
     this.loginForm.markAllAsTouched();
 
     if (this.loginForm.valid) {
-      this.http
+      /*       this.http
         .post<UserAuthModel>('http://localhost:1337/api/auth/local', {
           identifier: this.loginForm.value.email,
           password: this.loginForm.value.password,
         })
         .pipe(catchError(this.handleError))
         .subscribe((res) => {
-          this.userAuth.updateUserAuth(true);
-          this.router.navigate(['/home']);
+          this.getUserData(res.jwt, res.user.id);
+        }); */
+      this.userAuth
+        .getToken(this.loginForm.value.email, this.loginForm.value.password)
+        .subscribe((res) => {
           console.log(res.jwt);
         });
     }
@@ -60,5 +61,19 @@ export class LoginFormComponent {
   handleError(error: HttpErrorResponse) {
     this.userAuth.updateUserAuth(false);
     return throwError(() => new Error('there was an error in the post'));
+  }
+
+  getUserData(jwt: string, userId: number) {
+    this.http
+      .get(`http://localhost:1337/api/users/${userId}`, {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${jwt}`,
+        }),
+      })
+      .subscribe((res) => {
+        console.log(res);
+        this.userAuth.updateUserAuth(true);
+        this.router.navigate(['/home']);
+      });
   }
 }
