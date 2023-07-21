@@ -40,6 +40,8 @@ export class LoginFormComponent {
   onSubmit() {
     console.log(this.loginForm.value);
     console.log(this.loginForm.valid);
+    this.loginForm.markAllAsTouched();
+
     if (this.loginForm.valid) {
       this.http
         .post<UserAuthModel>('http://localhost:1337/api/auth/local', {

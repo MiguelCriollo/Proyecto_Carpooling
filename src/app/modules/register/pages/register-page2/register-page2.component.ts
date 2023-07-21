@@ -37,7 +37,7 @@ export class RegisterPage2Component {
 
   onSubmit() {
     console.log(this.registerFormData.value.page1.username);
-
+    this.registerFormData.markAllAsTouched();
     if (this.registerFormData.valid) {
       this.http
         .post('http://localhost:1337/api/auth/local/register', {
