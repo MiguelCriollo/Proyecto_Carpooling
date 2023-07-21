@@ -18,6 +18,6 @@ import { HttpClientModule } from '@angular/common/http';
     BodyTemplateModule,
     PageComponentModule,
     HttpClientModule,
-  ],
+  ]
 })
 export class LoginModule {}
