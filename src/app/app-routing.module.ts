@@ -8,6 +8,11 @@ const routes: Routes = [
       import('./modules/welcome/welcome.module').then((m) => m.WelcomeModule),
   },
   {
+    path: 'home',
+    loadChildren: () =>
+      import('./modules/home/home.module').then((m) => m.HomeModule),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./modules/error/error.module').then((m) => m.ErrorModule),
