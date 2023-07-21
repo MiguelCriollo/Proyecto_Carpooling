@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 export class RegisterFormService {
   private registerForm: FormGroup;
   private registerForm$: BehaviorSubject<FormGroup>;
-  private isValidPageOne$: BehaviorSubject<boolean>;
+  private isPageOneValid$: BehaviorSubject<boolean>;
 
   constructor() {
     this.registerForm = new FormGroup({
@@ -27,17 +27,17 @@ export class RegisterFormService {
     });
 
     this.registerForm$ = new BehaviorSubject<FormGroup>(this.registerForm);
-    this.isValidPageOne$ = new BehaviorSubject<boolean>(false);
+    this.isPageOneValid$ = new BehaviorSubject<boolean>(false);
   }
 
   getRegisterForm() {
     return this.registerForm$.asObservable();
   }
 
-  isValidPageOne() {
-    return this.isValidPageOne$.asObservable();
+  isPageOneValid() {
+    return this.isPageOneValid$.asObservable();
   }
   updateValidationOfPageOne(valid: boolean) {
-    this.isValidPageOne$.next(valid);
+    this.isPageOneValid$.next(valid);
   }
 }

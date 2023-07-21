@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterPage1Component } from './pages/register-page1/register-page1.component';
 import { RegisterPage2Component } from './pages/register-page2/register-page2.component';

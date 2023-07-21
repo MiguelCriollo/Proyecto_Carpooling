@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { RegisterFormService } from '../../services/register-form.service';
 import { FormsService } from 'src/app/shared/form-template/services/forms.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-register-page2',
@@ -12,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegisterPage2Component {
   registerFormPage2: FormGroup;
-  registerFormData: FormGroup
+  registerFormData: FormGroup;
 
   constructor(
     private registerForm: RegisterFormService,
@@ -34,17 +35,25 @@ export class RegisterPage2Component {
     return this.formService.getFormControl(this.registerFormPage2, controlName);
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.registerFormData.value.page1.username);
 
-    if(this.registerFormData.valid){
-      this.http.post('http://localhost:1337/api/auth/local/register', {
-        "username": this.registerFormData.value.page1.username,
-        "email": this.registerFormData.value.page2.email,
-        "password": this.registerFormData.value.page2.password
-      }).subscribe(res=>{
-        console.log(res);
-      })
+    if (this.registerFormData.valid) {
+      this.http
+        .post('http://localhost:1337/api/auth/local/register', {
+          username: this.registerFormData.value.page1.username,
+          email: this.registerFormData.value.page2.email,
+          password: this.registerFormData.value.page2.password,
+        })
+        .pipe(catchError(this.handleError))
+        .subscribe((res) => {
+          console.log(res);
+        });
     }
+  }
+
+  handleError(error: HttpErrorResponse) {
+    console.log(error);
+    return throwError(() => new Error('Error'));
   }
 }
