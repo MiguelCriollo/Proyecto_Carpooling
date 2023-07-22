@@ -4,6 +4,6 @@ import { UserAuthService } from '../services/user-auth.service';
 
 export const AuthGuard: CanActivateFn = (component: unknown) => {
   let user = inject(UserAuthService);
-  console.log("guard auth");
+  console.log('guard auth');
   return user.isUserAuth();
 };
