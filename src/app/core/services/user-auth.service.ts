@@ -4,16 +4,20 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
-import { UserAuthModel } from 'src/app/modules/login/models/user.model';
+import { Router } from '@angular/router';
+import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
+import { UserAuthModel, User } from 'src/app/core/models/user.model';
 
 @Injectable()
 export class UserAuthService {
   private isUserAuth$: BehaviorSubject<boolean>;
+  private jwt: string = '';
+  private userId: string = '';
   private http = inject(HttpClient);
+  private router = inject(Router);
 
   constructor() {
-    this.isUserAuth$ = new BehaviorSubject(false);
+    this.isUserAuth$ = new BehaviorSubject(this.isUserAlrealdyAuth());
   }
 
   updateUserAuth(state: boolean) {
@@ -40,7 +44,7 @@ export class UserAuthService {
   }
   getDataUser(jwt: string, userId: number) {
     return this.http
-      .get(`http://localhost:1337/api/users/${userId}`, {
+      .get<User>(`http://localhost:1337/api/users/${userId}`, {
         headers: new HttpHeaders({
           Authorization: `Bearer ${jwt}`,
         }),
@@ -48,18 +52,31 @@ export class UserAuthService {
       .pipe(catchError(this.handleErrors));
   }
 
-  isUserAuthenticated() {
-    let jwt = sessionStorage.getItem('jwtAuth');
-    let userId = sessionStorage.getItem('userId');
+  private getStorageData() {
+    let localJwt = sessionStorage.getItem('jwtAuth');
+    let localUserId = sessionStorage.getItem('userId');
 
-    if (jwt && userId) {
+    if (localJwt) this.jwt = localJwt;
+    if (localUserId) this.userId = localUserId;
+  }
+
+  isUserAlrealdyAuth() {
+    this.getStorageData();
+    if (this.jwt && this.userId) {
       return true;
     }
     return false;
   }
 
-  handleErrors(error: HttpErrorResponse) {
+  handleErrors = (error: HttpErrorResponse) => {
     this.updateUserAuth(false);
     return throwError(() => new Error('there was an error to request'));
+  };
+
+  get localJwt() {
+    return this.jwt;
+  }
+  get localUserId() {
+    return this.userId;
   }
 }

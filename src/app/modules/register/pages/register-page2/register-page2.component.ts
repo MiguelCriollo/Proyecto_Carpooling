@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { RegisterFormService } from '../../services/register-form.service';
 import { FormsService } from 'src/app/shared/form-template/services/forms.service';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, throwError } from 'rxjs';
+import { UserRegisterService } from 'src/app/core/services/user-register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-page2',
@@ -18,7 +18,8 @@ export class RegisterPage2Component {
   constructor(
     private registerForm: RegisterFormService,
     private formService: FormsService,
-    private http: HttpClient
+    private userRegister: UserRegisterService,
+    private router: Router
   ) {
     this.registerFormPage2 = new FormGroup({});
     this.registerFormData = new FormGroup({});
@@ -39,21 +40,15 @@ export class RegisterPage2Component {
     console.log(this.registerFormData.value.page1.username);
     this.registerFormData.markAllAsTouched();
     if (this.registerFormData.valid) {
-      this.http
-        .post('http://localhost:1337/api/auth/local/register', {
+      this.userRegister
+        .register({
           username: this.registerFormData.value.page1.username,
           email: this.registerFormData.value.page2.email,
           password: this.registerFormData.value.page2.password,
         })
-        .pipe(catchError(this.handleError))
         .subscribe((res) => {
-          console.log(res);
+          this.router.navigate(['/home']);
         });
     }
-  }
-
-  handleError(error: HttpErrorResponse) {
-    console.log(error);
-    return throwError(() => new Error('Error'));
   }
 }

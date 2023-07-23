@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormsService } from 'src/app/shared/form-template/services/forms.service';
@@ -41,6 +40,7 @@ export class LoginFormComponent {
         .getToken(this.loginForm.value.email, this.loginForm.value.password)
         .subscribe((res) => {
           this.userAuth.getDataUser(res.jwt, res.user.id).subscribe((res) => {
+            console.log(res);
             this.userAuth.updateUserAuth(true);
             this.router.navigate(['/home']);
           });

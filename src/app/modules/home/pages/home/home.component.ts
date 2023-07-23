@@ -1,11 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { delay } from 'rxjs';
 import { UserAuthService } from 'src/app/core/services/user-auth.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
+  userAuth = inject(UserAuthService);
+  username: string = "";
 
+  ngOnInit() {
+    if (this.userAuth.isUserAlrealdyAuth()) {
+      this.userAuth
+        .getDataUser(this.userAuth.localJwt, Number(this.userAuth.localUserId))
+        .pipe(delay(500))
+        .subscribe((res) => {
+          this.username = res.username;
+          console.log(this.username);
+        });
+    }
+  }
 }
