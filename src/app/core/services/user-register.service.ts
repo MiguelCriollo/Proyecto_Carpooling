@@ -10,10 +10,13 @@ export class UserRegisterService {
   http = inject(HttpClient);
 
   register(user: UserRegisterModel) {
-    return this.http.post<UserAuthModel>(this.url, user).pipe(catchError(this.handleErrors), tap(res=>{
+    return this.http.post<UserAuthModel>(this.url, user).pipe(
+      catchError(this.handleErrors),
+      tap((res) => {
         sessionStorage.setItem('jwtAuth', res.jwt);
         sessionStorage.setItem('userId', res.user.id.toString());
-    }));
+      })
+    );
   }
   handleErrors(error: HttpErrorResponse) {
     return throwError(() => new Error('error to post'));
