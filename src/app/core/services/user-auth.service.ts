@@ -4,7 +4,6 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
 import { UserAuthModel, User } from 'src/app/core/models/user.model';
 
@@ -12,9 +11,7 @@ import { UserAuthModel, User } from 'src/app/core/models/user.model';
 export class UserAuthService {
   private isUserAuth$: BehaviorSubject<boolean>;
   private jwt: string = '';
-  private userId: string = '';
   private http = inject(HttpClient);
-  private router = inject(Router);
 
   constructor() {
     this.isUserAuth$ = new BehaviorSubject(this.isUserAlrealdyAuth());
@@ -38,13 +35,12 @@ export class UserAuthService {
         catchError(this.handleErrors),
         tap((res) => {
           sessionStorage.setItem('jwtAuth', res.jwt);
-          sessionStorage.setItem('userId', res.user.id.toString());
         })
       );
   }
-  getDataUser(jwt: string, userId: number) {
+  getDataUser(jwt: string) {
     return this.http
-      .get<User>(`http://localhost:1337/api/users/${userId}`, {
+      .get<User>(`http://localhost:1337/api/users/me`, {
         headers: new HttpHeaders({
           Authorization: `Bearer ${jwt}`,
         }),
@@ -54,15 +50,13 @@ export class UserAuthService {
 
   private getStorageData() {
     let localJwt = sessionStorage.getItem('jwtAuth');
-    let localUserId = sessionStorage.getItem('userId');
 
     if (localJwt) this.jwt = localJwt;
-    if (localUserId) this.userId = localUserId;
   }
 
   isUserAlrealdyAuth() {
     this.getStorageData();
-    if (this.jwt && this.userId) {
+    if (this.jwt) {
       return true;
     }
     return false;
@@ -75,8 +69,5 @@ export class UserAuthService {
 
   get localJwt() {
     return this.jwt;
-  }
-  get localUserId() {
-    return this.userId;
   }
 }

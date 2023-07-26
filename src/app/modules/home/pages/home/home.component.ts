@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit{
   ngOnInit() {
     if (this.userAuth.isUserAlrealdyAuth()) {
       this.userAuth
-        .getDataUser(this.userAuth.localJwt, Number(this.userAuth.localUserId))
+        .getDataUser(this.userAuth.localJwt)
         .pipe(delay(500))
         .subscribe((res) => {
           this.username = res.username;
