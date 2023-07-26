@@ -1,4 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { delay } from 'rxjs';
 import { UserAuthService } from 'src/app/core/services/user-auth.service';
 
@@ -8,8 +9,10 @@ import { UserAuthService } from 'src/app/core/services/user-auth.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit{
-  userAuth = inject(UserAuthService);
   username: string = "";
+  router = inject(Router);
+  userAuth = inject(UserAuthService);
+
 
   ngOnInit() {
     if (this.userAuth.isUserAlrealdyAuth()) {
@@ -21,5 +24,10 @@ export class HomeComponent implements OnInit{
           console.log(this.username);
         });
     }
+  }
+
+  onClick(){
+    sessionStorage.clear();
+    this.router.navigate(['']);
   }
 }
