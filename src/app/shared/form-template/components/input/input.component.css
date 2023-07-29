@@ -24,3 +24,7 @@
     border: 2px solid rgb(218, 59, 59);
     background-color: rgba(255, 0, 0, 0.137);
 }
+
+.input.passwordNotMatch{
+    background-color: aquamarine;
+}
