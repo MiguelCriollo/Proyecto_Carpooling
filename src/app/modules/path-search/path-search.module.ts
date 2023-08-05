@@ -16,6 +16,9 @@ import { RoutesComponent } from './routes/routes.component';
   imports: [
     CommonModule,
     PathSearchRoutingModule
+  ],
+  exports: [
+    MainContainerComponent
   ]
 })
 export class PathSearchModule { }
