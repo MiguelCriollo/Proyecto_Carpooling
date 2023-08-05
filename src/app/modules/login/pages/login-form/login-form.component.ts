@@ -39,7 +39,7 @@ export class LoginFormComponent {
       this.userAuth
         .getToken(this.loginForm.value.email, this.loginForm.value.password)
         .subscribe((res) => {
-          this.userAuth.getDataUser(res.jwt, res.user.id).subscribe((res) => {
+          this.userAuth.getDataUser(res.jwt).subscribe((res) => {
             console.log(res);
             this.userAuth.updateUserAuth(true);
             this.router.navigate(['/home']);

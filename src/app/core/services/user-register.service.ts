@@ -14,7 +14,6 @@ export class UserRegisterService {
       catchError(this.handleErrors),
       tap((res) => {
         sessionStorage.setItem('jwtAuth', res.jwt);
-        sessionStorage.setItem('userId', res.user.id.toString());
       })
     );
   }
