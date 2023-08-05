@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  //{ path: 'preview', component: TuComponente }
+  /*
   {
     path: '',
     loadChildren: () =>
@@ -12,6 +14,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/error/error.module').then((m) => m.ErrorModule),
   },
+  */
 ];
 
 @NgModule({

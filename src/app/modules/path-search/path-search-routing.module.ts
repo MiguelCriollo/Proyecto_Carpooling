@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContainerComponent } from './container/container.component'; // Importa los componentes que necesites
 
 const routes: Routes = [
-  { path: 'Container', component: ContainerComponent },
+  { path: '', component: ContainerComponent },
   // Agrega otras rutas para los componentes del módulo
 ];
 
@@ -11,4 +11,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ProductosRoutingModule { }
+export class PathSearchRoutingModule { }
