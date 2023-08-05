@@ -6,8 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 
-import {RuteUserModule} from './modules/rute-user/rute-user.module'
-
+import {PathSearchModule} from './modules/path-search/path-search.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +16,7 @@ import {RuteUserModule} from './modules/rute-user/rute-user.module'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RuteUserModule,
+    PathSearchModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
