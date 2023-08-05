@@ -8,13 +8,15 @@ import { TemplateFormPageComponent } from './pages/template-form-page/template-f
 import { TitleComponent } from './components/title/title.component';
 import { InputComponent } from './components/input/input.component';
 import { FormsService } from './services/forms.service';
+import { SelectorTypeComponent } from './components/selector-type/selector-type.component';
 
 @NgModule({
   declarations: [
     SubmitButtonComponent,
     TemplateFormPageComponent,
     TitleComponent,
-    InputComponent
+    InputComponent,
+    SelectorTypeComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { FormsService } from './services/forms.service';
     TemplateFormPageComponent,
     SubmitButtonComponent,
     InputComponent,
-    TitleComponent
+    TitleComponent,
+    SelectorTypeComponent
   ],
   providers: [FormsService]
 })

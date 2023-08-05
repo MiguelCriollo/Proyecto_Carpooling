@@ -4,6 +4,8 @@ import { RegisterFormService } from '../../services/register-form.service';
 import { FormsService } from 'src/app/shared/form-template/services/forms.service';
 import { UserRegisterService } from 'src/app/core/services/user-register.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { UsertypeComponent } from 'src/app/shared/dialogs/usertype/usertype.component';
 
 @Component({
   selector: 'app-register-page2',
@@ -19,7 +21,8 @@ export class RegisterPage2Component {
     private registerForm: RegisterFormService,
     private formService: FormsService,
     private userRegister: UserRegisterService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {
     this.registerFormPage2 = new FormGroup({});
     this.registerFormData = new FormGroup({});
@@ -37,6 +40,7 @@ export class RegisterPage2Component {
   }
 
   onSubmit() {
+    this.showDialogUserType();
     console.log(this.registerFormData.value.page1.username);
     this.registerFormData.markAllAsTouched();
     if (this.registerFormData.valid) {
@@ -50,5 +54,9 @@ export class RegisterPage2Component {
           this.router.navigate(['/home']);
         });
     }
+  }
+
+  showDialogUserType() {
+    this.dialog.open(UsertypeComponent);
   }
 }
