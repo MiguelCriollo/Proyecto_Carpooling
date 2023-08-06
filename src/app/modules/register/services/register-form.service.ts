@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {
-  Form,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -35,6 +34,9 @@ export class RegisterFormService {
           validators: this.MustMatch('password', 'confirmPassword'),
         }
       ),
+      usertype: new FormGroup({
+        type: new FormControl('', Validators.required),
+      }),
     });
 
     console.log(this.registerForm.value?.page2?.password);

@@ -33,7 +33,9 @@ export class RegisterPage1Component {
   onSubmit(){
     this.registerFormPage1.markAllAsTouched();
     this.registerForm.updateValidationOfPageOne(this.registerFormPage1.valid);
-    this.router.navigate(['/register','2']);
+    if(this.registerFormPage1.valid){
+      this.router.navigate(['/register','usertype']);
+    }
   }
 
 }

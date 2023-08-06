@@ -9,13 +9,20 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BodyTemplateModule } from 'src/app/shared/body-template/body-template.module';
 import { PageComponentModule } from 'src/app/shared/page-component/page-component.module';
 import { HttpClientModule } from '@angular/common/http';
+import { UsertypeComponent } from './pages/usertype/usertype.component';
+import { UsertypeRadioComponent } from './components/usertype-radio/usertype-radio.component';
+import { DriverFormComponent } from './pages/driver-form/driver-form.component';
+import { DriverFormService } from './services/driver-form.service';
 
 
 
 @NgModule({
   declarations: [
     RegisterPage1Component,
-    RegisterPage2Component
+    RegisterPage2Component,
+    UsertypeComponent,
+    UsertypeRadioComponent,
+    DriverFormComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +33,6 @@ import { HttpClientModule } from '@angular/common/http';
     PageComponentModule,
     HttpClientModule
   ],
-  providers: [RegisterFormService]
+  providers: [RegisterFormService, DriverFormService]
 })
 export class RegisterModule { }

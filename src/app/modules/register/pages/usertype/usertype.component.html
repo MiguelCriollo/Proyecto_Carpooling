@@ -1,0 +1,27 @@
+<app-body-center>
+    <app-header></app-header>
+    <app-title title="Elige Tu Tipo De Usuario"></app-title>
+    <form [formGroup]="usertypeGroup" (ngSubmit)="onSubmit()">
+        <app-body-space>
+            <app-usertype-radio 
+                title="Soy Pasajero"
+                description="Registrandote como pasajero podras crear tu cuenta en simples pasos, y no te preocupes, puedes agregar la posibilidad de ser conductor cuando tu quieras!!"
+                value="passenger"
+                [control]="getFormControl('type')"
+            ></app-usertype-radio>
+            <app-usertype-radio
+                title="Soy Conductor"
+                description="Debes pasar por una simple validacion de tus datos y las de tu/s carros, todo para garantizar tu seguridad y de los demas.
+                !No te preocupes! Obtendras todas las funcionalidades de pasajero y podras cambiar de tipo cuando lo desees!!"
+                value="driver"
+                [control]="getFormControl('type')"
+            >
+            </app-usertype-radio>
+            <app-submit-button
+                type="submit"
+                [deactiveLink]="true"
+                textContent="Siguiente"   
+            ></app-submit-button>
+        </app-body-space>
+    </form>    
+</app-body-center>
