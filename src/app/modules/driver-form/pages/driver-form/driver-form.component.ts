@@ -23,10 +23,8 @@ export class DriverFormComponent {
   ngOnInit() {
     this.driverForm.getForm().subscribe((form) => {
       this.driverFormGroup = form;
-      console.log(this.driverFormGroup);
     });
     this.userAuth.localUserId.subscribe((id) => {
-      console.log(id);
       this.userId = id;
     });
   }
