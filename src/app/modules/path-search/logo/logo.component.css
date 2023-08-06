@@ -1,0 +1,33 @@
+#logoMain{
+    background-color: #FFBE2E;
+    background-image: url('../../../../assets/imgs/ecuadorLines.png');
+    background-size: cover; /* Para ajustar el tamaño de la imagen al contenedor */
+    background-repeat: no-repeat;
+    height: 300px;
+    display: grid;
+    grid-template-rows: 1fr 1fr; /* Tres columnas con tamaño igual */
+    grid-gap: 10px;
+    padding: 20px;
+}
+#logoImagen{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+#logoImagen img{
+    width: 40%;
+}
+#textLogo{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+#textLogo p{
+    color: #17110D;
+    font-family: Josefin Slab;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
