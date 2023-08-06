@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit, IsAuth {
           this.username = res.username;
           this.isAuth = true;
           console.log(this.username);
+          this.userAuth.updateUserAuth(true);
         });
     }
   }
@@ -32,6 +33,10 @@ export class HomeComponent implements OnInit, IsAuth {
     sessionStorage.clear();
     this.isAuth = false;
     this.router.navigate(['']);
+  }
+
+  toDriverForm(){
+    this.router.navigate(['/home', 'driverform']);
   }
 
   isAlreadyAuth() {

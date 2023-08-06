@@ -12,9 +12,12 @@ export class UserAuthService {
   private isUserAuth$: BehaviorSubject<boolean>;
   private jwt: string = '';
   private http = inject(HttpClient);
+  private userId: string = '';
+  private userId$: BehaviorSubject<string>;
 
   constructor() {
     this.isUserAuth$ = new BehaviorSubject(this.isUserAlrealdyAuth());
+    this.userId$ = new BehaviorSubject('');
   }
 
   updateUserAuth(state: boolean) {
@@ -45,7 +48,12 @@ export class UserAuthService {
           Authorization: `Bearer ${jwt}`,
         }),
       })
-      .pipe(catchError(this.handleErrors));
+      .pipe(
+        catchError(this.handleErrors),
+        tap((res) => {
+          this.userId$.next(res.id.toString());
+        })
+      );
   }
 
   private getStorageData() {
@@ -69,5 +77,8 @@ export class UserAuthService {
 
   get localJwt() {
     return this.jwt;
+  }
+  get localUserId() {
+    return this.userId$.asObservable();
   }
 }

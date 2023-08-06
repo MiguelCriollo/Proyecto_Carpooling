@@ -9,6 +9,7 @@ export const AuthGuard: CanActivateFn = () => {
   console.log('guard auth');
   return user.isUserAuth().pipe(
     tap((isAuth) => {
+      console.log('is Auth', isAuth);
       if (!isAuth) router.navigate(['']);
     })
   );

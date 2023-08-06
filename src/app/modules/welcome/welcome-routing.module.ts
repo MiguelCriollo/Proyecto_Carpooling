@@ -4,7 +4,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
 
 const routes: Routes = [
-  {path: '', component: LoginPageComponent},
+  { path: '', component: LoginPageComponent },
   {
     path: 'login',
     loadChildren: () =>
@@ -13,20 +13,17 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () =>
-      import('../register/register.module').then(
-        (m) => m.RegisterModule
-      ),
+      import('../register/register.module').then((m) => m.RegisterModule),
   },
   {
     path: 'home',
-    loadChildren: () =>
-      import('../home/home.module').then((m) => m.HomeModule),
+    loadChildren: () => import('../home/home.module').then((m) => m.HomeModule),
     canActivate: [AuthGuard],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class WelcomeRoutingModule { }
+export class WelcomeRoutingModule {}
