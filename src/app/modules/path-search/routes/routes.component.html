@@ -7,13 +7,18 @@
         <div id="dropDownRouteSelector">
             <select >
                 <option value="None" selected disabled>Seleccione un Destino</option>
-                <option *ngFor="let item of ['Paccha','Universidad de Cuenca','Sudamericano']" value={{item}}>{{item}}</option>
+                <option *ngFor="let item of destinosTest" value={{item}}>{{item}}</option>
             </select>
-            
         </div>
     </div>
     <div id="routeDisplay">
+        <div id="headerResults">
+            <div *ngFor="let headerName of ['Destino','Parada1','Parada2','Conductor','Llegada']" class="headerRoutes">
+                <p>{{headerName}}</p>
+            </div>
+            
 
+        </div>
     </div>
 </div>
 

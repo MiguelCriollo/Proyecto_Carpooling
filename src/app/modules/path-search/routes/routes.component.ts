@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./routes.component.css']
 })
 export class RoutesComponent {
-
+  destinosTest = ['Paccha','Universidad de Cuenca','Sudamericano']
 }
