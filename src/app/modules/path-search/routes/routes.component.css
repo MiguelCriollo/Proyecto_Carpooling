@@ -46,9 +46,19 @@
 #headerResults{
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* Genera 5 columnas de igual tamaño */
-    gap: 2px; /* Espacio entre los elementos */
 }
 
 .headerRoutes{
-    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+    background-color: yellow;
+}
+.contentRoutes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dotted;
+    background-color: bisque;
 }

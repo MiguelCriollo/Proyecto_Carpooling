@@ -13,10 +13,14 @@
     </div>
     <div id="routeDisplay">
         <div id="headerResults">
-            <div *ngFor="let headerName of ['Destino','Parada1','Parada2','Conductor','Llegada']" class="headerRoutes">
+            <div *ngFor="let headerName of headers" class="headerRoutes">
                 <p>{{headerName}}</p>
             </div>
-            
+            <ng-container *ngFor="let list of resultsTest" >
+                <div *ngFor="let item of list" class="contentRoutes">
+                    <p>{{item}}</p>
+                </div>
+            </ng-container>
 
         </div>
     </div>
