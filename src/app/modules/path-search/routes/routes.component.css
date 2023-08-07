@@ -3,17 +3,26 @@
     display: grid;
     grid-template-rows: 20% 10% auto;
 }
+#routesSearchMessages{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+#routesSearchMessages p {
+    font-family: var(--text-font);
+    font-size: 40px;
+}
 #routeSearch{
     border-radius: 50px;
     background: #DAD9D8;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     padding: 10px;
+    display: grid;
+    grid-template-columns: 90% auto;
 }
 
-#routesSearchMessages p {
-    font-family: var(--text-font);
-}
+
 
 #welcomeMessage{
     text-align: center;
@@ -31,8 +40,18 @@
     height: 100%;
     font-family: var(--text-font);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
+    border-radius: 20px 0px 0px 20px;
     background-color: var( --fourth-color);
+}
+#buttonSeachRoute{
+    height: 100%;
+    font-size: 12px;
+    border-radius: 0px 20px 20px 0px;
+    text-align: center;
+    font-family: var(--text-font);
+    color: white;
+    background-color: var(--second-color);
+    font-weight: bold;
 }
 
 #routeDisplay{
@@ -54,6 +73,9 @@
     justify-content: center;
     border: 1px solid;
     background-color: yellow;
+    font-family: var(--text-font);
+    font-weight: bolder;
+    font-size: 20px;
 }
 .contentRoutes{
     display: flex;
@@ -61,4 +83,5 @@
     justify-content: center;
     border: 1px dotted;
     background-color: bisque;
+    font-family: var(--text-font);
 }
