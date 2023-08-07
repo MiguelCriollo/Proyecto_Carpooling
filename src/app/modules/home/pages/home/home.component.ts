@@ -1,8 +1,13 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { delay } from 'rxjs';
+import { Observable, delay } from 'rxjs';
 import { IsAuth } from 'src/app/core/models/auth-user.model';
 import { UserAuthService } from 'src/app/core/services/user-auth.service';
+import { StopService } from '../../services/stop.service';
+import { Stops } from '../../model/stop.model';
+import { JourneyService } from '../../services/journey.service';
+import { Journeys } from '../../model/journey.model';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +15,25 @@ import { UserAuthService } from 'src/app/core/services/user-auth.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit, IsAuth {
+  private router = inject(Router);
+  private userAuth = inject(UserAuthService);
+  private stops = inject(StopService);
+  private journeys = inject(JourneyService);
+  stops$: Observable<Stops>;
+  journeys$: Observable<Journeys>;
+  journeyCoincidences$: Observable<Journeys>;
   username: string = '';
-  router = inject(Router);
-  userAuth = inject(UserAuthService);
   isAuth = false;
+  stopSearch: FormGroup;
+
+  constructor(){
+    this.stops$ = new Observable();
+    this.journeys$ = new Observable();
+    this.journeyCoincidences$ = new Observable();
+    this.stopSearch = new FormGroup({
+      stop: new FormControl('')
+    });
+  }
 
   ngOnInit() {
     if (this.userAuth.isUserAlrealdyAuth()) {
@@ -26,6 +46,10 @@ export class HomeComponent implements OnInit, IsAuth {
           console.log(this.username);
           this.userAuth.updateUserAuth(true);
         });
+
+      this.stops$ = this.stops.get();
+      this.journeys$ = this.journeys.get();
+      this.journeyCoincidences$ = this.journeys.getCoincidences('Bolivia');
     }
   }
 
@@ -35,7 +59,7 @@ export class HomeComponent implements OnInit, IsAuth {
     this.router.navigate(['']);
   }
 
-  toDriverForm(){
+  toDriverForm() {
     this.router.navigate(['/home', 'driverform']);
   }
 
@@ -45,5 +69,14 @@ export class HomeComponent implements OnInit, IsAuth {
     }
 
     return true;
+  }
+
+  searchJourneys(){
+    console.log(this.getFormControl('stop').value)
+    this.journeyCoincidences$ = this.journeys.getCoincidences(this.getFormControl('stop').value);
+  }
+
+  getFormControl(controlName: string){
+    return this.stopSearch.get(controlName) as FormControl;
   }
 }
