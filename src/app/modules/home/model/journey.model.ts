@@ -11,5 +11,6 @@ export interface Journey{
 
 export interface JourneyAttributes{
     price: string,
-    stops: Stops
+    stops: Stops,
+    arrival: string
 }

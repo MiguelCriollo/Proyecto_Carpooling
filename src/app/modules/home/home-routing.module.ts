@@ -16,6 +16,13 @@ const routes: Routes = [
         (m) => m.DriverFormModule
       ),
   },
+  {
+    path: 'pathsearch',
+    loadChildren: () =>
+      import('../path-search/path-search.module').then(
+        (m) => m.PathSearchModule
+      ),
+  },
 ];
 
 @NgModule({

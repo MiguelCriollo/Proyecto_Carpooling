@@ -21,6 +21,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports: [
     HomeRoutingModule
   ],
-  providers: [StopService, JourneyService]
+  providers: [StopService, JourneyService],
 })
 export class HomeModule { }

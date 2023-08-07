@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+
+    height: 50px;
+    background-color: yellow;
+    border: 1px solid black;
+}
+
+.stop{
+    border: 1px solid black;
+}
