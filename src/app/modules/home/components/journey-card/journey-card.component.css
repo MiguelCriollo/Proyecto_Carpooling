@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+
+    background-color: bisque;
+    border: 1px solid black;
+}
+.description{
+    margin-left: 5px;
+
+    width: fit-content;
+
+    background-color: aquamarine;
+}

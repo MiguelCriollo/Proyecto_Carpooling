@@ -1,2 +1,25 @@
-<p>I am {{username}}</p>
+<p>I am {{ username }}</p>
 <button (click)="logout()">log out</button>
+<button (click)="toDriverForm()">driver form</button>
+<form [formGroup]="stopSearch" (ngSubmit)="searchJourneys()">
+  <select name="stops" id="" [formControl]="getFormControl('stop')">
+    <option
+      [value]="stop.attributes.place"
+      *ngFor="let stop of (stops$ | async)?.data"
+    >
+      {{ stop.attributes.place }}
+    </option>
+  </select>
+  <button type="submit">Search</button>
+</form>
+
+<app-journey-card
+  *ngFor="let journey of (journeys$ | async)?.data"
+  [stops]="journey.attributes.stops"
+></app-journey-card>
+<h2>Coincidences</h2>
+<app-journey-card
+  *ngFor="let journey of (journeyCoincidences$ | async)?.data"
+  [stops]="journey.attributes.stops"
+>
+</app-journey-card>

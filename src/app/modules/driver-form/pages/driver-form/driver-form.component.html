@@ -1,0 +1,24 @@
+<app-body-center>
+  <app-header></app-header>
+  <app-title title="Datos De Conductor"></app-title>
+  <form [formGroup]="driverFormGroup" (ngSubmit)="onSubmit()">
+    <app-body-space>
+      <app-input
+        textLabel="Licencia: "
+        [control]="getFormControl('license')"
+      ></app-input>
+      <app-input
+        textLabel="Años de conducción: "
+        [control]="getFormControl('yearsOfDriving')"
+      ></app-input>
+      <app-input
+        textLabel="Número de Autos: "
+        [control]="getFormControl('numberOfCars')"
+      ></app-input>
+      <app-submit-button
+        type="submit"
+        [deactiveLink]="true"
+      ></app-submit-button>
+    </app-body-space>
+  </form>
+</app-body-center>
