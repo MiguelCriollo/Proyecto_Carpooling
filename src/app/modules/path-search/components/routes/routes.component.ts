@@ -2,8 +2,8 @@ import { Component, inject } from '@angular/core';
 import { StopService } from '../../services/stop.service';
 import { JourneyService } from '../../services/journey.service';
 import { Observable } from 'rxjs';
-import { Stops } from 'src/app/modules/home/model/stop.model';
-import { Journeys } from 'src/app/modules/home/model/journey.model';
+import { Stops } from 'src/app/modules/path-search/model/stop.model';
+import { Journeys } from 'src/app/modules/path-search/model/journey.model';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({

@@ -25,7 +25,7 @@ export class DriverFormComponent {
       this.driverFormGroup = form;
     });
     this.userAuth.localUserId.subscribe((id) => {
-      this.userId = id;
+      this.userId = id.toString();
     });
   }
 

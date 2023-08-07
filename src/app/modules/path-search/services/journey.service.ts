@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { UserAuthService } from "src/app/core/services/user-auth.service";
-import { Journeys } from "../../home/model/journey.model";
+import { Journeys } from "../model/journey.model";
 import { environment } from "src/environments/environment";
 import { map } from "rxjs";
 

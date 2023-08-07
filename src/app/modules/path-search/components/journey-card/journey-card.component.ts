@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Stops } from 'src/app/modules/home/model/stop.model';
+import { Stops } from 'src/app/modules/path-search/model/stop.model';
 
 @Component({
   selector: 'app-journey-card',

@@ -4,7 +4,7 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, map, pipe, tap, throwError } from 'rxjs';
 import { UserAuthModel, User } from 'src/app/core/models/user.model';
 
 @Injectable()
@@ -76,9 +76,21 @@ export class UserAuthService {
   };
 
   get localJwt() {
+    this.getStorageData();
     return this.jwt;
   }
   get localUserId() {
-    return this.userId$.asObservable();
+    return this.http
+    .get<User>(`http://localhost:1337/api/users/me`, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.jwt}`,
+      }),
+    })
+    .pipe(
+      catchError(this.handleErrors),
+      pipe(map(res => {
+        return res.id;
+      })
+    ))
   }
 }
