@@ -1,6 +1,6 @@
 #logoMain{
     background-color: #FFBE2E;
-    background-image: url('../../../../assets/imgs/ecuadorLines.png');
+    background-image: url('../../../../../assets/imgs/ecuadorLines.png');
     background-size: cover; /* Para ajustar el tamaño de la imagen al contenedor */
     background-repeat: no-repeat;
     height: 300px;

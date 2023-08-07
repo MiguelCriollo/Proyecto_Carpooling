@@ -9,6 +9,7 @@ import { StopService } from './services/stop.service';
 import { JourneyService } from './services/journey.service';
 import { JourneyCardComponent } from './components/journey-card/journey-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PageComponentModule } from 'src/app/shared/page-component/page-component.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     PathSearchRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PageComponentModule
   ],
   providers: [StopService, JourneyService]
 })

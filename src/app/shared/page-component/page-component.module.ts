@@ -16,7 +16,8 @@ import { HeaderComponent } from './components/header/header.component';
     CommonModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    LogotypeComponent
   ]
 })
 export class PageComponentModule { }
