@@ -4,7 +4,11 @@
     <p>Ustes ha buscado</p>
   </div>
   <div id="routeSearch">
-    <form [formGroup]="stopSearch" (ngSubmit)="searchJourneys()" id="dropDownRouteSelector">
+    <form
+      [formGroup]="stopSearch"
+      (ngSubmit)="searchJourneys()"
+      id="dropDownRouteSelector"
+    >
       <select [formControl]="getFormControl('stop')">
         <option value="None" selected disabled>Seleccione un Destino</option>
         <option
@@ -19,9 +23,10 @@
   </div>
   <div id="routeDisplay">
     <div *ngFor="let journey of (journeys$ | async)?.data">
-        <app-journey-card 
-            [stops]="journey.attributes.stops"
-            [arrival]="journey.attributes.arrival"></app-journey-card>
-      </div>
+      <app-journey-card
+        [stops]="journey.attributes.stops"
+        [arrival]="journey.attributes.arrival"
+      ></app-journey-card>
+    </div>
   </div>
 </div>

@@ -38,7 +38,6 @@ export class RoutesComponent {
   }
 
   searchJourneys() {
-    console.log('hello');
     this.journeys$ = this.journeys.getCoincidences(
       this.getFormControl('stop').value
     );
