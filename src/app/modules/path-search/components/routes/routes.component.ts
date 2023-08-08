@@ -1,10 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { StopService } from '../../services/stop.service';
 import { JourneyService } from '../../services/journey.service';
 import { Observable } from 'rxjs';
-import { Stops } from 'src/app/modules/path-search/model/stop.model';
 import { Journeys } from 'src/app/modules/path-search/model/journey.model';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Stops } from '../../model/stop.model';
 
 @Component({
   selector: 'app-routes',
@@ -12,34 +10,28 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./routes.component.css'],
 })
 export class RoutesComponent {
-  private stops = inject(StopService);
   private journeys = inject(JourneyService);
+  stops: Stops;
+  displayStopMenu: boolean = false;
 
-  stops$: Observable<Stops>;
   journeys$: Observable<Journeys>;
-  stopSearch: FormGroup;
 
   constructor() {
-    this.stops$ = new Observable();
     this.journeys$ = new Observable();
-
-    this.stopSearch = new FormGroup({
-      stop: new FormControl(''),
-    });
+    this.stops = {data: []};
   }
 
   ngOnInit() {
-    this.stops$ = this.stops.get();
     this.journeys$ = this.journeys.get();
   }
 
-  getFormControl(controlName: string) {
-    return this.stopSearch.get(controlName) as FormControl;
+  searchJourneys(stopName: string) {
+    this.journeys$ = this.journeys.getCoincidences(stopName);
   }
 
-  searchJourneys() {
-    this.journeys$ = this.journeys.getCoincidences(
-      this.getFormControl('stop').value
-    );
+  dropDownMenu(stops: Stops){
+    this.displayStopMenu = true;
+    this.stops = stops;
   }
+
 }

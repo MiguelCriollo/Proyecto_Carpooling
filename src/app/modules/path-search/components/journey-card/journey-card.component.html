@@ -1,10 +1,17 @@
 <div class="container">
-    <div class="stop" *ngFor="let stop of stops.data">
-        <div>parada</div>
-        <span>{{stop.attributes.place}}</span>
+  <div class="titles">
+    <div class="title">Destino</div>
+    <div class="title">Paradas</div>
+    <div class="title">Llegada</div>
+  </div>
+  <div class="descriptions">
+    <span class="description">{{ stops.data[0].attributes.place }}</span>
+    <div class="description description--stop">
+      <div>{{ stops.data[1].attributes.place }}</div>
+      <button class="stop-button" (click)="dropdownMenu()">
+        <span class="material-symbols-outlined"> visibility </span>
+      </button>
     </div>
-    <div>
-        <div>llegada</div>
-        <span>{{arrival}}</span>
-    </div>
+    <span class="description">{{ arrival }}</span>
+  </div>
 </div>

@@ -1,32 +1,27 @@
+<app-stop-dropdown-menu
+  *ngIf="displayStopMenu"
+  [stops]="stops"
+  (exitEvent)="displayStopMenu = $event"
+></app-stop-dropdown-menu>
 <div id="routesGrids">
   <div id="routesSearchMessages">
     <p id="welcomeMessage">Ingrese su destino</p>
-    <p>Ustes ha buscado</p>
   </div>
   <div id="routeSearch">
-    <form
-      [formGroup]="stopSearch"
-      (ngSubmit)="searchJourneys()"
-      id="dropDownRouteSelector"
-    >
-      <select [formControl]="getFormControl('stop')">
-        <option value="None" selected disabled>Seleccione un Destino</option>
-        <option
-          *ngFor="let item of (stops$ | async)?.data"
-          value="{{ item.attributes.place }}"
-        >
-          {{ item.attributes.place }}
-        </option>
-      </select>
-      <button type="submit">Search</button>
-    </form>
-  </div>
-  <div id="routeDisplay">
-    <div *ngFor="let journey of (journeys$ | async)?.data">
-      <app-journey-card
-        [stops]="journey.attributes.stops"
-        [arrival]="journey.attributes.arrival"
-      ></app-journey-card>
-    </div>
+    <app-body-center>
+      <app-stop-search-bar
+        (onSubmit)="searchJourneys($event)"
+      ></app-stop-search-bar>
+      <p id="message">Usted ha buscado</p>
+      <div id="routeDisplay">
+        <div *ngFor="let journey of (journeys$ | async)?.data">
+          <app-journey-card
+            [stops]="journey.attributes.stops"
+            [arrival]="journey.attributes.arrival"
+            (dropDownMenu)="dropDownMenu($event)"
+          ></app-journey-card>
+        </div>
+      </div>
+    </app-body-center>
   </div>
 </div>

@@ -1,0 +1,15 @@
+<div class="background">
+  <div class="container">
+    <app-body-center>
+      <header class="header">
+        <h2 class="title">Paradas</h2>
+        <button class="button" (click)="exit()">X</button>
+      </header>
+      <div class="stops">
+        <span class="stop" *ngFor="let stop of stops.data">
+          {{ stop.attributes.place }}
+        </span>
+      </div>
+    </app-body-center>
+  </div>
+</div>
