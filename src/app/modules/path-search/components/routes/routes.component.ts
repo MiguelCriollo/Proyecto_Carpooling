@@ -11,6 +11,7 @@ import { Stops } from '../../model/stop.model';
 })
 export class RoutesComponent {
   private journeys = inject(JourneyService);
+  private stopName: string = '';
   stops: Stops;
   displayStopMenu: boolean = false;
 
@@ -18,7 +19,7 @@ export class RoutesComponent {
 
   constructor() {
     this.journeys$ = new Observable();
-    this.stops = {data: []};
+    this.stops = { data: [] };
   }
 
   ngOnInit() {
@@ -26,12 +27,14 @@ export class RoutesComponent {
   }
 
   searchJourneys(stopName: string) {
-    this.journeys$ = this.journeys.getCoincidences(stopName);
+    if (this.stopName != stopName) {
+      this.stopName = stopName;
+      this.journeys$ = this.journeys.getCoincidences(stopName);
+    }
   }
 
-  dropDownMenu(stops: Stops){
+  dropDownMenu(stops: Stops) {
     this.displayStopMenu = true;
     this.stops = stops;
   }
-
 }

@@ -2,6 +2,7 @@
   <form class="routeSearch" [formGroup]="stopSearch" (ngSubmit)="onSubmit()">
     <select class="selector" [formControl]="getFormControl('stop')">
       <option
+        class="option"
         [value]="stop.attributes.place"
         *ngFor="let stop of (stops$ | async)?.data"
       >

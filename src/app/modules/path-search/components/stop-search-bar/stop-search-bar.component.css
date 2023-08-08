@@ -2,18 +2,18 @@
     display: flex;
     justify-content: space-around;
 
-    border-radius: 50px;
+    border-radius: 3.125rem;
     background: #DAD9D8;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    padding: 10px;
+    box-shadow: 0rem .25rem .25rem 0rem rgba(0, 0, 0, 0.25);
+    padding: .625rem;
 }
 
 .routeSearch::before{
     position: relative;
     content: "";
 
-    width: 25px;
-    height: 25px;
+    width: 1.5625rem;
+    height: 1.5625rem;
 
     background-color: var(--second-color);
     border-radius: 50%;
@@ -21,12 +21,21 @@
 
 .selector{
     width: 65%;
-    height: 25px;
+    height: 1.5625rem;
 
     border: none;
+    font-family: var(--text-font);
+    font-size: 1.25rem;
 }
 
 .search-button{
     border: none;
     background-color: transparent;
+}
+
+.option{
+    width: 100%;
+
+    font-family: var(--text-font);
+    font-size: 1rem;
 }
