@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Stop, Stops } from 'src/app/modules/path-search/model/stop.model';
+import { Direction } from '../../pipes/to-fixed.pipe';
 
 @Component({
   selector: 'app-journey-card',
@@ -7,14 +8,12 @@ import { Stop, Stops } from 'src/app/modules/path-search/model/stop.model';
   styleUrls: ['./journey-card.component.css'],
 })
 export class JourneyCardComponent {
-
   @Input() stops: Stops;
   @Input() arrival: string = "";
   @Output('dropDownMenu') dropDownMenuEvent: EventEmitter<Stops>;
 
   constructor() {
     this.dropDownMenuEvent = new EventEmitter();
-
     this.stops = { data: [] };
   }
 

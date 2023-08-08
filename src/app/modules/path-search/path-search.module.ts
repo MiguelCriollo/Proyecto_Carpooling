@@ -13,6 +13,7 @@ import { PageComponentModule } from 'src/app/shared/page-component/page-componen
 import { BodyTemplateModule } from 'src/app/shared/body-template/body-template.module';
 import { StopSearchBarComponent } from './components/stop-search-bar/stop-search-bar.component';
 import { StopDropdownMenuComponent } from './components/stop-dropdown-menu/stop-dropdown-menu.component';
+import { ToFixedPipe } from './pipes/to-fixed.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { StopDropdownMenuComponent } from './components/stop-dropdown-menu/stop-
     JourneyCardComponent,
     StopSearchBarComponent,
     StopDropdownMenuComponent,
+    ToFixedPipe,
   ],
   imports: [
     CommonModule,
