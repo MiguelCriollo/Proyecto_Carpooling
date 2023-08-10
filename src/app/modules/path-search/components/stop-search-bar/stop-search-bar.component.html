@@ -1,0 +1,16 @@
+<div>
+  <form class="routeSearch" [formGroup]="stopSearch" (ngSubmit)="onSubmit()">
+    <select class="selector" [formControl]="getFormControl('stop')">
+      <option
+        class="option"
+        [value]="stop.attributes.place"
+        *ngFor="let stop of (stops$ | async)?.data"
+      >
+        {{ stop.attributes.place }}
+      </option>
+    </select>
+    <button class="search-button" type="submit">
+      <span class="material-symbols-outlined"> search </span>
+    </button>
+  </form>
+</div>
